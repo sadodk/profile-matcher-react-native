@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native';
-import AuthScreen from './components/AuthScreen';
+import AuthScreen from './screens/AuthScreen';
 
 export default function Index() {
 	return (
