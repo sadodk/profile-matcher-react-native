@@ -10,13 +10,13 @@ import {
 	View,
 } from 'react-native';
 
-import { login, signup, testMatchEndpoint } from '../api/authApi';
-import GenderPicker from '../components/GenderPicker';
-import ProfileView from '../components/ProfileView';
+import { login, signup, testMatchEndpoint } from '../../api/authApi';
+import GenderPicker from './GenderPicker';
 import LoginScreen from './LoginScreen';
+import ProfileView from './ProfileView';
 import SignupScreen from './SignupScreen';
 
-import { decodeJwt } from '../utils/jwt';
+import { decodeJwt } from '../../utils/jwt';
 
 export default function AuthScreen() {
 	const [isLogin, setIsLogin] = useState(true);
