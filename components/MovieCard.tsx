@@ -14,17 +14,27 @@ const MovieCard = ({
 }: Movie) => {
 	return (
 		<Link href={`/movie/${id}`} asChild>
-			<TouchableOpacity className="w-[30%]">
+			<TouchableOpacity
+				style={{ flex: 1, marginHorizontal: 4, marginBottom: 12 }}
+			>
 				<Image
 					source={{
 						uri: poster_path
 							? `https://image.tmdb.org/t/p/w500/${poster_path}`
 							: 'https://via.placeholder.com/600x400/1a1a1a/ffffff.png',
 					}}
-					className="w-full h-52 rounded-lg"
+					style={{ width: '100%', height: 180, borderRadius: 12 }}
 					contentFit="cover"
 				/>
-				<Text className="text-white font-bold text-sm mt-2" numberOfLines={1}>
+				<Text
+					style={{
+						color: 'white',
+						fontWeight: 'bold',
+						fontSize: 14,
+						marginTop: 8,
+					}}
+					numberOfLines={1}
+				>
 					{title}
 				</Text>
 				<View className="flex-row items-center justify-start gap-x-1">

@@ -5,23 +5,33 @@ import { Tabs } from 'expo-router';
 import React from 'react';
 import { ImageBackground, Text, View } from 'react-native';
 
-const TabIcon = ({ focused, icon, title }: any) => {
+const TabIcon = ({
+	focused,
+	icon,
+	title,
+}: {
+	focused: boolean;
+	icon: any;
+	title: string;
+}) => {
 	if (focused) {
 		return (
 			<ImageBackground
 				source={images.highlight}
-				className="flex flex-row w-full flex-1 min-w-[112px] min-h-12 mt-3 justify-center items-center rounded-full overflow-hidden"
+				className="flex-row min-w-[112px] min-h-12 mt-5 justify-center items-center rounded-full overflow-hidden flex-1"
+				resizeMode="contain"
 			>
-				<Image source={icon} tintColor="#151312" className="size-5" />
-				<Text className="text-secondary text-base font-semibold ml-2 ">
+				<Image source={icon} tintColor="#151312" className="w-5 h-5" />
+				<Text className="text-secondary text-base font-semibold ml-2">
 					{title}
 				</Text>
 			</ImageBackground>
 		);
 	}
 	return (
-		<View className="size-full justify-center items-center mt-4 rounded-full">
-			<Image source={icon} tintColor="#A8B5DB" className="size-5" />
+		<View className="flex-row min-w-[112px] min-h-12 mt-2 justify-center items-center rounded-full w-full h-12">
+			<Image source={icon} tintColor="#A8B5DB" className="w-5 h-5" />
+			<Text className="text-white text-base font-semibold ml-2">{title}</Text>
 		</View>
 	);
 };
@@ -32,21 +42,22 @@ const _layout = () => {
 			screenOptions={{
 				tabBarShowLabel: false,
 				tabBarItemStyle: {
+					// NativeWind doesn't support className here, so keep these minimal
 					width: '100%',
-					height: '100%',
+					height: 56,
 					justifyContent: 'center',
 					alignItems: 'center',
 				},
 				tabBarStyle: {
-					backgroundColor: '#0f0D23',
+					backgroundColor: '#030014', // Use primary color from your theme
 					borderRadius: 50,
 					marginHorizontal: 20,
-					marginBottom: 36,
-					height: 52,
-					position: 'absolute',
-					overflow: 'hidden',
+					marginBottom: 38,
+					height: 56,
+					position: 'absolute', // Ensure it's absolutely positioned
 					borderWidth: 1,
 					borderColor: '#0f0d23',
+					zIndex: 1000, // Ensure it's above other content
 				},
 			}}
 		>
